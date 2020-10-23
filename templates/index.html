@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="../style.css">
+    <title>Cap challenge</title>
+</head>
+<body style="margin-left: 5%">
+    <h1 class ="header">News headlines</h1>
+    <br>
+    {% for x in articles_list %}
+
+    <p> {%print(x['url'])%}</p>
+    <p> {%print(x['source']['name'])%} </p>
+    <a href="{%print(x['url'])%}">
+        {%print(x['title'])%}</a>
+
+    <p style = "margin-left: 5%">
+        {%print(x['description'])%} </p>
+    <img class="img"; src= "{%print(x['urlToImage'])%}"; style = "margin-left: 5%">
+    <br>
+    <br>
+    {% endfor %}
+
+</body>
+</html>
