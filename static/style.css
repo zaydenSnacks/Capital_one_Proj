@@ -1,9 +1,6 @@
 .img {
     height: auto;
     width: auto;
-    max-width: 200px;
-    max-height:  200px;
-}
-.header {
-    color: #0040ff;
+    max-width: 500px;
+    max-height:  500px;
 }
