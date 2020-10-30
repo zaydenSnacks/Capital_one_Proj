@@ -16,27 +16,34 @@ def home():
 
 @app.route("/sports/")
 def sports():
-    url = ('https://newsapi.org/v2/top-headlines?country=us&category=sports&apiKey=579c378a51e64237a1a1ad13d9069103')
-    response = requests.get(url).json()
+    response = newsapi.get_top_headlines(category="sports", country="us", language="en", page_size=50)
     return render_template("index.html", articles_list=response['articles'])
 
 @app.route("/entertainment/")
 def entertainment():
-    url = ('https://newsapi.org/v2/top-headlines?country=us&category=entertainment&apiKey=579c378a51e64237a1a1ad13d9069103')
-    response = requests.get(url).json()
+    response = newsapi.get_top_headlines(category="entertainment", country="us", language="en", page_size=50)
     return render_template("index.html", articles_list=response['articles'])
 
 @app.route("/technology/")
 def technology():
-    url = 'https://newsapi.org/v2/top-headlines?country=us&category=technology&apiKey=579c378a51e64237a1a1ad13d9069103'
-    response = requests.get(url).json()
+    response = newsapi.get_top_headlines(category="technology", country="us", language="en", page_size=50)
     return render_template("index.html", articles_list=response['articles'])
 
 @app.route("/search/", methods=["POST", "GET"])
 def search():
-    url = ('https://newsapi.org/v2/top-headlines?q=' + request.form["nm"] + '&country=us&category=entertainment&category=sports&category=technology&apiKey=579c378a51e64237a1a1ad13d9069103')
-    response = requests.get(url).json()
+
+    if request.form["nm"] == "":
+        return home()
+
+    response = newsapi.get_everything(q= "technology OR entertainment OR sports AND " + request.form["nm"] + " NOT politics",
+                                          qintitle="technology OR entertainment OR sports AND " + request.form["nm"], language="en",
+                                          sort_by="relevancy", page_size=40,
+                                          from_param=date.today() - timedelta(days=1), to=date.today())
+    if response['totalResults'] == 0:
+        return render_template("zero_results.html")
+
     return render_template("index.html", articles_list=response['articles'])
+
 
 
 if __name__ == "__main__":
