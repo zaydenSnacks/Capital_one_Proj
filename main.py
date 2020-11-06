@@ -37,12 +37,12 @@ def search(page_number=1):
 
     response = newsapi.get_everything(q= "(technology OR entertainment OR sports) AND " + request.form["nm"] + " NOT politics",
                                           qintitle="(technology OR entertainment OR sports) AND " + request.form["nm"], language="en",
-                                          sort_by="relevancy", page_size=50, page= 1,
+                                          sort_by="relevancy", page_size=50, page=page_number,
                                           from_param=date.today() - timedelta(days=1), to=date.today())
     if response['totalResults'] == 0:
         return render_template("zero_results.html")
 
-    return render_template("index.html", articles_list=response['articles'])
+    return render_template("index.html", articles_list=response['articles'], current_page=page_number)
 
 
 
