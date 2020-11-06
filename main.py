@@ -29,20 +29,20 @@ def technology():
     response = newsapi.get_top_headlines(category="technology", country="us", language="en", page_size=50)
     return render_template("index.html", articles_list=response['articles'])
 
-@app.route("/search/<int:page_number>", methods=["POST", "GET"])
-def search(page_number=1):
+@app.route("/search/", methods=["POST", "GET"])
+def search():
 
     if request.form["nm"].lower() == "":
         return home()
 
-    response = newsapi.get_everything(q= "(technology OR entertainment OR sports) AND " + request.form["nm"] + " NOT politics",
-                                          qintitle="(technology OR entertainment OR sports) AND " + request.form["nm"], language="en",
-                                          sort_by="relevancy", page_size=50, page=page_number,
+    response = newsapi.get_everything(q= "technology OR entertainment OR sports AND " + request.form["nm"],
+                                          qintitle="technology OR entertainment OR sports AND " + request.form["nm"], language="en",
+                                          sort_by="relevancy", page_size=50,
                                           from_param=date.today() - timedelta(days=1), to=date.today())
-    if response['totalResults'] == 0:
+    if response['totalResults'] == 0 or response['status'] != 'ok':
         return render_template("zero_results.html")
 
-    return render_template("index.html", articles_list=response['articles'], current_page=page_number)
+    return render_template("index.html", articles_list=response['articles'])
 
 
 
