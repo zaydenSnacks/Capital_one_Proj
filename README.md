@@ -1,1 +1,4 @@
-# Capital_one_Proj
+# NewNow
+My webb app news now contains all of the recent and relevant news. 
+
+
