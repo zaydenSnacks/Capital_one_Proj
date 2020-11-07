@@ -6,5 +6,5 @@ To run the code locally you will need to:
 - clone the respository
 - make sure to have python3 installed as well as a python interpreter for the project
 - install all of the packages from the requirements.txt file
-- run the project through the main.py file and click on the link displayed by the console or type in localhost:500 into a browser
+- run the project through the main.py file and click on the link displayed by the console or type in localhost:500 in a browser
 
