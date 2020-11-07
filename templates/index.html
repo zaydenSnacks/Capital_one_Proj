@@ -12,38 +12,38 @@
     {% for x in range(0, (articles_list| length) - 4, 4) %}
 <div class="card-group">
   <div class="card">
-    <img src="{%print(articles_list[x]['urlToImage'])%}" class="card-img-top" alt="...">
+    <img src="{{articles_list[x]['urlToImage']}}" class="card-img-top" alt="...">
     <div class="card-body">
       <h5 class="card-title">{%print(articles_list[x]['title'])%}</h5>
       <p class="card-text">{%print(articles_list[x]['description'])%} </p>
-        <a href="{%print(articles_list[x]['url'])%}" class="btn btn-primary">{%print(articles_list[x]['source']['name'])%}</a>
+        <a href="{{articles_list[x]['url']}}" class="btn btn-primary">{%print(articles_list[x]['source']['name'])%}</a>
     </div>
   </div>
   <div class="card">
-    <img src="{%print(articles_list[x + 1]['urlToImage'])%}" class="card-img-top" alt="...">
+    <img src="{{articles_list[x + 1]['urlToImage']}}" class="card-img-top" alt="...">
     <div class="card-body">
       <h5 class="card-title">{%print(articles_list[x + 1]['title'])%}</h5>
       <p class="card-text">{%print(articles_list[x + 2]['description'])%} </p>
-        <a href="{%print(articles_list[x + 1]['url'])%}" class="btn btn-primary">{%print(articles_list[x + 1]['source']['name'])%}</a>
+        <a href="{{articles_list[x + 1]['url']}}" class="btn btn-primary">{%print(articles_list[x + 1]['source']['name'])%}</a>
     </div>
   </div>
   <div class="card">
-    <img src="{%print(articles_list[x + 2]['urlToImage'])%}" class="card-img-top" alt="...">
+    <img src="{{articles_list[x + 2]['urlToImage']}}" class="card-img-top" alt="...">
     <div class="card-body">
       <h5 class="card-title">{%print(articles_list[x + 2]['title'])%}</h5>
       <p class="card-text">{%print(articles_list[x + 2]['description'])%} </p>
-        <a href="{%print(articles_list[x + 2]['url'])%}" class="btn btn-primary">{%print(articles_list[x + 2]['source']['name'])%}</a>
+        <a href="{{articles_list[x + 2]['url']}}" class="btn btn-primary">{%print(articles_list[x + 2]['source']['name'])%}</a>
     </div>
   </div>
 </div>
 
 
     <div class="card mb-3" style="height: 850px">
-  <img src="{%print(articles_list[x + 3]['urlToImage'])%}" class="card-img-top" alt="...">
+  <img src="{{articles_list[x + 3]['urlToImage']}}" class="card-img-top" alt="...">
   <div class="card-body">
     <h5 class="card-title">{%print(articles_list[x + 3]['title'])%}</h5>
     <p class="card-text">{%print(articles_list[x + 3]['description'])%}</p>
-      <a href="{%print(articles_list[x + 3]['url'])%}" class="btn btn-primary">{%print(articles_list[x + 3]['source']['name'])%}</a>
+      <a href="{{articles_list[x + 3]['url']}}" class="btn btn-primary">{%print(articles_list[x + 3]['source']['name'])%}</a>
   </div>
 </div>
 

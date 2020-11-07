@@ -20,19 +20,19 @@
           <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
             <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
               <li class="nav-item">
-                <a class="nav-link" href="http://127.0.0.1:5000/">Headlines <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="{{url_for('home')}}">Headlines <span class="sr-only">(current)</span></a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="http://127.0.0.1:5000/sports/">Sports</a>
+                <a class="nav-link" href="{{url_for('sports')}}">Sports</a>
               </li>
                 <li class="nav-item">
-                <a class="nav-link" href="http://127.0.0.1:5000/entertainment/">Entertainment</a>
+                <a class="nav-link" href="{{url_for('entertainment')}}">Entertainment</a>
               </li>
                 <li class="nav-item">
-                <a class="nav-link" href="http://127.0.0.1:5000/technology/">Technology</a>
+                <a class="nav-link" href="{{url_for('technology')}}">Technology</a>
               </li>
             </ul>
-            <form class="form-inline my-2 my-lg-0" action="http://127.0.0.1:5000/search/" method="post">
+            <form class="form-inline my-2 my-lg-0" action="{{url_for('search')}}" method="post">
               <input class="form-control mr-sm-2" type="search" name="nm" placeholder="Search" aria-label="Search">
               <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
             </form>
