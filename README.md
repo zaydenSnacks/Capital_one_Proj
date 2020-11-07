@@ -1,5 +1,5 @@
 # NewNow
-My webb app, news now contains all of the recent and relevant news.
+My web app, news now contains all of the recent and relevant news.
 
 # Design
 
