@@ -1,1 +1,1 @@
-web: gunicorn Capital_one_Proj:main
+web: gunicorn app:main
