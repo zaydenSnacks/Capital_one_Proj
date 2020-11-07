@@ -29,7 +29,7 @@ def technology():
     response = newsapi.get_top_headlines(category="technology", country="us", language="en", page_size=50)
     return render_template("index.html", articles_list=response['articles'])
 
-@app.route("/search/")                                                                              # Only vists this page if the search but has been pressed
+@app.route("/search/", methods=["POST","GET"])                                                                            # Only vists this page if the search but has been pressed
 def search():
 
     if request.form["nm"].lower() == "":                                                                                                    # taking user input from search bar
